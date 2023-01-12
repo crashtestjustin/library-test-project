@@ -30,6 +30,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 40px;
+  position: relative;
 }
 
 .add-new {
@@ -93,6 +94,13 @@ body {
   justify-items: center;
   row-gap: 10px;
   padding: 40px;
+}
+
+.new-book-modal {
+  position: absolute;
+  right: 40%;
+  top: 30%;
+  visibility: hidden;
 }
 
 #new-book-form {
