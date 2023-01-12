@@ -8,6 +8,18 @@ function addBookToLib() {
   //call to add books to library here
 }
 
+const addNewBook = document.querySelector(".add-new");
+
+addNewBook.addEventListener("click", (e) => {
+  const formModal = document.querySelector(".new-book-modal");
+  const modalOverlay = document.querySelector(".overlay");
+  formModal.classList.remove("hidden-modal");
+  modalOverlay.classList.add("active");
+});
+
+function testPrint() {
+  console.log("test");
+}
 // //using object constructors
 
 // function Book(title, author, pages, read) {
