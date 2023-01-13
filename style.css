@@ -97,9 +97,9 @@ body {
 }
 
 .new-book-modal {
-  position: absolute;
+  position: fixed;
   right: 40%;
-  top: 10%;
+  top: 20%;
 }
 
 .hidden-modal {
