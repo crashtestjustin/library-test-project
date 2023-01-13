@@ -79,6 +79,11 @@ body {
   border-radius: 12px;
   background-color: rgb(249, 148, 148);
   font-size: var(--button-font-size);
+  transition: 0.2s;
+}
+
+.book-holder button:active {
+  transform: scale(0.95);
 }
 
 .book-holder button + button {
