@@ -52,7 +52,7 @@ body {
 
 .library-grid {
   display: grid;
-  grid-template: 1fr / repeat(auto-fit, minmax(300px, 300px));
+  grid-template-columns: repeat(auto-fiLL, minmax(300px, 1fr));
   gap: 20px;
 }
 
@@ -68,11 +68,12 @@ body {
   font-size: var(--button-font-size);
 }
 
-.book-holder > div:first-child {
+.book-holder > div:first-child,
+.book-holder-title {
   font-weight: 600;
 }
 
-.book-holder button {
+.book-holder-button {
   width: 250px;
   height: 40px;
   border: 0;
@@ -82,11 +83,17 @@ body {
   transition: 0.2s;
 }
 
-.book-holder button:active {
+.read-button-read {
+  background-color: rgb(163, 249, 148);
+}
+
+.book-holder button:active,
+.book-holder-button:active {
   transform: scale(0.95);
 }
 
-.book-holder button + button {
+.book-holder button + button,
+.remove-button {
   background-color: lightgray;
   font-size: var(--button-font-size);
 }
@@ -114,7 +121,7 @@ body {
 #new-book-form {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 12px;
-  width: 300px;
+  width: 350px;
   padding: 20px 10px;
   display: grid;
   justify-items: center;
