@@ -16,6 +16,7 @@ function addBookToLib(t, a, p, r) {
   let book = new Book(t, a, p, r);
   myLibrary.push(book);
   createBookDiv(t, a, p, r);
+  console.log(book);
 }
 
 function createBookDiv(t, a, p, r) {
