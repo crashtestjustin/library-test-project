@@ -19,7 +19,7 @@
       <div class="library-grid"></div>
       <div class="overlay" id="overlay"></div>
       <div class="new-book-modal hidden-modal">
-        <form action="/" method="GET" id="new-book-form">
+        <form action="/" method="" id="new-book-form">
           <div>Add a New Book</div>
           <div class="form-field">
             <input
@@ -34,7 +34,7 @@
           <div class="form-field">
             <input
               type="text"
-              id="title"
+              id="author"
               name="author"
               minlength="3"
               placeholder="Author"
@@ -52,9 +52,7 @@
             />
           </div>
           <div class="form-field check-read">
-            <label for="has-read"
-              >Have you read it yet?<span aria-label="required">*</span></label
-            >
+            <label for="has-read">Have you read it yet?</label>
             <input type="checkbox" id="has-read" name="has-read" />
           </div>
           <div class="submit-form">

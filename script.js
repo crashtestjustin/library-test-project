@@ -2,6 +2,7 @@
 
 let myLibrary = [];
 const libraryGrid = document.querySelector(".library-grid");
+const submitForm = document.querySelector(".submit-button");
 
 function Book(title, author, pages, read) {
   //book object contructor
@@ -43,11 +44,27 @@ function createBookDiv(t, a, p, r) {
   if (r) {
     bookRead.className = "book-holder-button read-button-read";
     bookRead.textContent = "Read";
+  } else {
+    bookRead.className = "book-holder-button";
   }
 }
 
+submitForm.addEventListener("click", (e) => {
+  e.preventDefault();
+  const inputTitle = document.getElementById("title").value;
+  const inputAuthor = document.getElementById("author").value;
+  const inputPages = document.getElementById("pages").value;
+  const hasRead = document.getElementById("has-read");
+  if (hasRead.checked === true) {
+    checkRead = true;
+  } else {
+    checkRead = false;
+  }
+  addBookToLib(inputTitle, inputAuthor, inputPages, checkRead);
+  closeModal();
+});
+
 addBookToLib("test", "book", 800, true);
-addBookToLib("test", "book", 800, false);
 
 //User Interface Actions
 
