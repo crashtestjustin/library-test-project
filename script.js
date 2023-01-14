@@ -1,9 +1,10 @@
 //object contructor
 
 let myLibrary = [];
+const libraryGrid = document.querySelector(".library-grid");
 
 function Book(title, author, pages, read) {
-  //create new books attributes
+  //book object contructor
   this.title = title;
   this.author = author;
   this.pages = pages;
@@ -11,15 +12,41 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLib(t, a, p, r) {
-  //call to add books to library
+  //function adding books to library
   let book = new Book(t, a, p, r);
-  console.log(book);
   myLibrary.push(book);
+  createBookDiv(t, a, p, r);
 }
 
-addBookToLib("test", "book", 900, true);
-addBookToLib("test", "book2", 9000, false);
-console.log(myLibrary);
+function createBookDiv(t, a, p, r) {
+  const bookChild = document.createElement("div");
+  const bookTitle = document.createElement("div");
+  const bookAuthor = document.createElement("div");
+  const bookPages = document.createElement("div");
+  const bookRead = document.createElement("button");
+  const removeButton = document.createElement("button");
+  bookChild.classList.add("book-holder");
+  bookRead.className = "book-holder-button";
+  removeButton.className = "book-holder-button remove-button";
+  removeButton.textContent = "Remove";
+  bookRead.textContent = "Not Read";
+  libraryGrid.appendChild(bookChild);
+  bookChild.appendChild(bookTitle);
+  bookChild.appendChild(bookAuthor);
+  bookChild.appendChild(bookPages);
+  bookChild.appendChild(bookRead);
+  bookChild.appendChild(removeButton);
+  bookTitle.textContent = t;
+  bookAuthor.textContent = a;
+  bookPages.textContent = p;
+  if (r) {
+    bookRead.className = "book-holder-button read-button-read";
+    bookRead.textContent = "Read";
+  }
+}
+
+addBookToLib("test", "book", 800, true);
+addBookToLib("test", "book", 800, false);
 
 //User Interface Actions
 
