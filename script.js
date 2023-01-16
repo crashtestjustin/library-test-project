@@ -19,7 +19,6 @@ function addBookToLib(t, a, p, r) {
   let book = new Book(t, a, p, r);
   myLibrary.push(book);
   createBookDiv(t, a, p, r);
-  // console.log(book);
   console.log(myLibrary);
 }
 
@@ -91,6 +90,32 @@ function closeModal() {
   formModal.classList.add("hidden-modal");
   modalOverlay.classList.remove("active");
 }
+
+document.addEventListener("click", (e) => {
+  const removeButton = e.target.closest(".remove-button");
+  if (removeButton) {
+    const bookChild = e.target.closest(".book-holder");
+    let i = bookChild.dataset.bookIndex;
+    console.log(bookChild);
+    console.log(i);
+    bookChild.remove();
+    reindexLibrary();
+    myLibrary.splice(i, 1);
+    console.log(myLibrary);
+  }
+});
+
+function reindexLibrary() {
+  const libraryBooks = document.querySelectorAll(".book-holder");
+  index = 0;
+  libraryBooks.forEach((book) => {
+    book.dataset.bookIndex = index;
+    index = index + 1;
+  });
+}
+
+//remove the div that contains the index dataset element
+//re-assign the index dataset element to all the remaining array items
 
 function testPrint() {
   console.log("test");
