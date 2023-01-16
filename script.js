@@ -1,5 +1,3 @@
-// bookIndex = 0;
-
 //object contructor
 
 let myLibrary = [];
@@ -7,7 +5,6 @@ const libraryGrid = document.querySelector(".library-grid");
 const submitForm = document.querySelector(".submit-button");
 
 function Book(title, author, pages, read) {
-  //book object contructor
   this.title = title;
   this.author = author;
   this.pages = pages;
@@ -19,7 +16,6 @@ function addBookToLib(t, a, p, r) {
   let book = new Book(t, a, p, r);
   myLibrary.push(book);
   createBookDiv(t, a, p, r);
-  console.log(myLibrary);
 }
 
 function createBookDiv(t, a, p, r) {
@@ -67,8 +63,6 @@ submitForm.addEventListener("click", (e) => {
   closeModal();
 });
 
-// addBookToLib("test", "book", 800, true);
-
 //User Interface Actions
 
 const addNewBook = document.querySelector(".add-new");
@@ -91,6 +85,7 @@ function closeModal() {
   modalOverlay.classList.remove("active");
 }
 
+//listens for DOM elements closest to click event and either removes the div and updates the array OR changes read status
 document.addEventListener("click", (e) => {
   const removeButton = e.target.closest(".remove-button");
   const unreadButton = e.target.closest(".read-button-unread");
@@ -98,12 +93,9 @@ document.addEventListener("click", (e) => {
   const bookChild = e.target.closest(".book-holder");
   if (removeButton) {
     let i = bookChild.dataset.bookIndex;
-    console.log(bookChild);
-    console.log(i);
     bookChild.remove();
     reindexLibrary();
     myLibrary.splice(i, 1);
-    console.log(myLibrary);
   }
   if (unreadButton) {
     unreadButton.className = "book-holder-button read-button-read";
@@ -124,9 +116,6 @@ function reindexLibrary() {
   });
 }
 
-function testPrint() {
-  console.log("test");
-}
 // //using object constructors
 
 // function Book(title, author, pages, read) {
