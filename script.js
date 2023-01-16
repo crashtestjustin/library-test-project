@@ -1,3 +1,5 @@
+// bookIndex = 0;
+
 //object contructor
 
 let myLibrary = [];
@@ -17,7 +19,8 @@ function addBookToLib(t, a, p, r) {
   let book = new Book(t, a, p, r);
   myLibrary.push(book);
   createBookDiv(t, a, p, r);
-  console.log(book);
+  // console.log(book);
+  console.log(myLibrary);
 }
 
 function createBookDiv(t, a, p, r) {
@@ -28,7 +31,7 @@ function createBookDiv(t, a, p, r) {
   const bookRead = document.createElement("button");
   const removeButton = document.createElement("button");
   bookChild.classList.add("book-holder");
-  bookRead.className = "book-holder-button";
+  bookChild.dataset.bookIndex = myLibrary.length - 1;
   removeButton.className = "book-holder-button remove-button";
   removeButton.textContent = "Remove";
   bookRead.textContent = "Not Read";
@@ -61,10 +64,11 @@ submitForm.addEventListener("click", (e) => {
     checkRead = false;
   }
   addBookToLib(inputTitle, inputAuthor, inputPages, checkRead);
+  document.getElementById("new-book-form").reset();
   closeModal();
 });
 
-addBookToLib("test", "book", 800, true);
+// addBookToLib("test", "book", 800, true);
 
 //User Interface Actions
 
