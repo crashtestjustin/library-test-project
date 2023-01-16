@@ -47,7 +47,7 @@ function createBookDiv(t, a, p, r) {
     bookRead.className = "book-holder-button read-button-read";
     bookRead.textContent = "Read";
   } else {
-    bookRead.className = "book-holder-button";
+    bookRead.className = "book-holder-button read-button-unread";
   }
 }
 
@@ -93,8 +93,10 @@ function closeModal() {
 
 document.addEventListener("click", (e) => {
   const removeButton = e.target.closest(".remove-button");
+  const unreadButton = e.target.closest(".read-button-unread");
+  const readButton = e.target.closest(".read-button-read");
+  const bookChild = e.target.closest(".book-holder");
   if (removeButton) {
-    const bookChild = e.target.closest(".book-holder");
     let i = bookChild.dataset.bookIndex;
     console.log(bookChild);
     console.log(i);
@@ -102,6 +104,14 @@ document.addEventListener("click", (e) => {
     reindexLibrary();
     myLibrary.splice(i, 1);
     console.log(myLibrary);
+  }
+  if (unreadButton) {
+    unreadButton.className = "book-holder-button read-button-read";
+    unreadButton.textContent = "Read";
+  }
+  if (readButton) {
+    readButton.className = "book-holder-button read-button-unread";
+    readButton.textContent = "Not Read";
   }
 });
 
@@ -113,9 +123,6 @@ function reindexLibrary() {
     index = index + 1;
   });
 }
-
-//remove the div that contains the index dataset element
-//re-assign the index dataset element to all the remaining array items
 
 function testPrint() {
   console.log("test");
