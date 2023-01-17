@@ -127,7 +127,6 @@ body {
   justify-items: center;
   gap: 20px;
   grid-template-columns: 1fr;
-  grid-auto-columns: 1fr;
   background-color: #ececec;
 }
 
@@ -147,6 +146,25 @@ body {
   border: 0;
   font-size: var(--button-font-size);
   padding-left: 10px;
+  padding-right: 10px;
+}
+
+.form-field-invalid {
+  border: 1px solid red;
+}
+
+.empty-error-message::after {
+  color: red;
+  font-size: 0.5rem;
+  font-weight: 700;
+  content: "Required Field";
+}
+
+.wrong-error-message::after {
+  color: red;
+  font-size: 0.5rem;
+  font-weight: 700;
+  content: "Invalid Input";
 }
 
 .check-read {

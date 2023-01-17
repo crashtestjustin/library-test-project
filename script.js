@@ -2,7 +2,7 @@
 
 let myLibrary = [];
 const libraryGrid = document.querySelector(".library-grid");
-const submitForm = document.querySelector(".submit-button");
+const submitForm = document.getElementById("submit");
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -48,7 +48,6 @@ function createBookDiv(t, a, p, r) {
 }
 
 submitForm.addEventListener("click", (e) => {
-  e.preventDefault();
   const inputTitle = document.getElementById("title").value;
   const inputAuthor = document.getElementById("author").value;
   const inputPages = document.getElementById("pages").value;
@@ -61,6 +60,7 @@ submitForm.addEventListener("click", (e) => {
   addBookToLib(inputTitle, inputAuthor, inputPages, checkRead);
   document.getElementById("new-book-form").reset();
   closeModal();
+  e.preventDefault();
 });
 
 //User Interface Actions
